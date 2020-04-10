@@ -1,4 +1,3 @@
-
 <body>
   <article>
     <h1 class="TodoPage-title">
@@ -12,6 +11,5 @@
     <%= render partial: "todo-section", locals: {section_title: "overdue", todos: Todo.overdue, show_due_date: true} %>
     <%= render partial: "todo-section", locals: {section_title: "due today", todos: Todo.due_today, show_due_date: false} %>
     <%= render partial: "todo-section", locals: {section_title: "due later", todos: Todo.due_later, show_due_date: true} %>
-
   </article>
 </body>

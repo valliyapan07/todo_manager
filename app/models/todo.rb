@@ -18,12 +18,12 @@ class Todo < ActiveRecord::Base
   end
 
   def self.completed
-    all.where(completed: "true")
+    all.where(completed: true)
   end
 
   def self.completed?(section_title)
     if section_title == "overdue"
-      all.where(completed: "false")
+      all.where(completed: false)
     else
       all
     end
