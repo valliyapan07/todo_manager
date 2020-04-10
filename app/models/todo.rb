@@ -5,6 +5,30 @@ class Todo < ActiveRecord::Base
     due_date == Date.today
   end
 
+  def self.overdue
+    all.where("due_date < ?", Date.today)
+  end
+
+  def self.due_later
+    all.where("due_date > ?", Date.today)
+  end
+
+  def self.due_today
+    all.where("due_date = ?", Date.today)
+  end
+
+  def self.completed
+    all.where(completed: "true")
+  end
+
+  def self.completed?(section_title)
+    if section_title == "overdue"
+      all.where(completed: "false")
+    else
+      all
+    end
+  end
+
   def to_displayable_string
     display_status = completed ? "[X]" : "[ ]"
     display_date = due_today? ? nil : due_date
