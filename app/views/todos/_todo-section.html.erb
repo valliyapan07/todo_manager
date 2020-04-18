@@ -13,14 +13,16 @@
         <div class="TodoItem-container">
           <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
             <input
+              type="checkbox"
               class="TodoItem-checkbox"
               name="completed"
-              type="checkbox" <%= todo.completed ? "checked" : ""%>
-              onclick=this.form.submit()
-              />
+              <%= todo.completed ? "checked" : "" %>
+              onclick="this.form.submit()"
+            />
           <% end%>
           <p style='<%= todo.completed ? "text-decoration: line-through" : ""%>'>
-          <%= todo.todo_text%></p>
+            <%= todo.todo_text%>
+          </p>
           <p class="TodoItem-duedate">
             <% if show_due_date%>
               <%= todo.due_date.to_s(:short)%>
