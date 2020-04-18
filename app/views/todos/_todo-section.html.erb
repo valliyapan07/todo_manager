@@ -20,7 +20,7 @@
               onclick="this.form.submit()"
             />
           <% end%>
-          <p style='<%= todo.completed ? "text-decoration: line-through" : ""%>'>
+          <p class='<%= todo.completed ? "Todo-Display" : ""%>'>
             <%= todo.todo_text%>
           </p>
           <p class="TodoItem-duedate">

@@ -29,6 +29,7 @@ body{
   border-radius: 4px;
   margin-right: 20px;
 }
+
 .AddTodo-text{
   padding: 6px 12px;
   font-size: 22px;
@@ -47,6 +48,10 @@ body{
   border-radius: 4px;
 }
 
+.Todo-Display{
+  text-decoration: line-through;
+}
+
 .TodoSection{
   margin-bottom: 32px;
 }
@@ -54,11 +59,13 @@ body{
 .TodoSectionTitle{
   display: flex;
 }
+
 .TodoSectionTitle-text{
   font-size: 30px;
   line-height: 1.4;
   color: #453C52;
 }
+
 .TodoSectionTitle-count{
   font-size: 24px;
   margin-left: 10px;
@@ -71,6 +78,7 @@ body{
   font-size: 26px;
   color: #453C52;
 }
+
 .TodoItem-container{
   display: flex;
   align-items: stretch;
@@ -102,9 +110,11 @@ body{
 .TodoItem-delete > img{
   width: 16px;
 }
+
 .TodoItem-container:hover{
   background-color: #F1EDF7;
 }
+
 .TodoItem-container:hover .TodoItem-delete{
   visibility: visible;
 }
