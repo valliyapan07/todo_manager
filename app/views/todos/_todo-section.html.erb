@@ -4,7 +4,7 @@
       <%= section_title %>
     </h2>
     <h2 class="TodoSectionTitle-count">
-      <%= todos.completed.count%>/<%= todos.count%>
+      <%= todos.completed.count %>/<%= todos.count %>
     </h2>
   </div>
   <ul class="Todo-UnorderedList">
@@ -12,29 +12,30 @@
       <li class="TodoItem">
         <div class="TodoItem-container">
           <%= form_with(url: "/todos/#{todo.id}", method: "put") do %>
-            <input
-              type="checkbox"
-              class="TodoItem-checkbox"
-              name="completed"
-              <%= todo.completed ? "checked" : "" %>
-              onclick="this.form.submit()"
-            />
-          <% end%>
-          <p class='<%= todo.completed ? "Todo-Display" : ""%>'>
-            <%= todo.todo_text%>
+            <%= check_box_tag(
+                             name="completed",
+                             value=nil,
+                             checked = todo.completed ? true : false,
+                             class: "TodoItem-checkbox",
+                             onclick: "this.form.submit()"
+                             )
+            %>
+          <% end %>
+          <p class= '<%= todo.completed ? "Todo-Display" : ""%>' >
+            <%= todo.todo_text %>
           </p>
           <p class="TodoItem-duedate">
-            <% if show_due_date%>
-              <%= todo.due_date.to_s(:short)%>
-            <% end%>
+            <% if show_due_date %>
+              <%= todo.due_date.to_s(:short) %>
+            <% end %>
           </p>
           <a href="javascript:void(0)" class="TodoItem-delete">
             <%= form_with(url: "/todos/#{todo.id}", method: "delete") do %>
-              <input type="image" src="delete.svg">
-            <% end%>
+              <%= image_submit_tag('delete.svg') %>
+            <% end %>
           </a>
         </div>
       </li>
-    <% end%>
+    <% end %>
   </ul>
 </section>
