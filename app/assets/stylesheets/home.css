@@ -11,4 +11,6 @@
   background-color: lightgray;
   padding: 10px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
