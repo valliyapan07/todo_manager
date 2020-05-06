@@ -30,7 +30,7 @@ class TodosController < ApplicationController
   def update
     id = params[:id]
     completed = params[:completed]
-    todo = @todos.find(id)
+    todo = current_user.todos.find(id)
     todo.completed = completed
     todo.save!
     redirect_to todos_path
@@ -38,7 +38,7 @@ class TodosController < ApplicationController
 
   def destroy
     id = params[:id]
-    todo = @todos.find(id)
+    todo = current_user.todos.find(id)
     todo.destroy
     redirect_to todos_path
   end
